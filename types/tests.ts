@@ -1,4 +1,4 @@
-import * as ObsWebsocketJs from 'obs-websocket-js';
+import * as ObsWebsocketJs from '@streamdasher/obs-websocket-js';
 
 const obs = new ObsWebsocketJs();
 obs.connect().then().catch();

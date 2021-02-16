@@ -1,31 +1,15 @@
 # obs-websocket-js
 
 <p align="center"><i>
-OBSWebSocket.JS allows Javascript-based connections to the Open Broadcaster plugin <a href="https://github.com/Palakis/obs-websocket">obs-websocket</a>.
+obs-websocket-js allows Javascript-based connections to the Open Broadcaster plugin <a href="https://github.com/Palakis/obs-websocket">obs-websocket</a>.
 </i></p>
 
-<p align="center">
-  <a href="https://travis-ci.org/haganbmj/obs-websocket-js"><img src="https://img.shields.io/travis/haganbmj/obs-websocket-js/master.svg?style=flat"></a>
-  <a href="https://coveralls.io/github/haganbmj/obs-websocket-js?branch=master"><img src="https://coveralls.io/repos/github/haganbmj/obs-websocket-js/badge.svg?branch=master"></a>
-  <a href="https://libraries.io/bower/obs-websocket-js"><img src="https://img.shields.io/bower/v/obs-websocket-js.svg?style=flat"></a>
-  <a href="https://www.npmjs.com/package/obs-websocket-js"><img src="https://img.shields.io/npm/v/obs-websocket-js.svg?style=flat"></a>
-  <a href="https://www.npmjs.com/package/obs-websocket-js"><img src="https://img.shields.io/npm/dt/obs-websocket-js.svg"></a>
-  <img src="https://img.shields.io/npm/l/obs-websocket-js.svg">
-  <a href="https://greenkeeper.io/"><img src="https://badges.greenkeeper.io/haganbmj/obs-websocket-js.svg"></a>
-</p>
-
-<p align="center"><b>
-  <a href="https://raw.githubusercontent.com/haganbmj/obs-websocket-js/gh-pages/dist/obs-websocket.js">Download</a> |
-  <a href="https://github.com/haganbmj/obs-websocket-js/tree/master/samples">Samples</a> |
-  <a href="https://github.com/haganbmj/obs-websocket-js/blob/gh-pages/CHANGELOG.md">Changelog</a>
-</b></p>
+This is a fork of the original project available at <a href="https://github.com/haganbmj/obs-websocket-js">haganbmj/obs-websocket-js</a>.
 
 ## Installation
 
 ```sh
-npm install obs-websocket-js --save
-
-bower install obs-websocket-js --save
+npm install @streamdasher/obs-websocket-js --save
 ```
 
 Typescript definitions are included in this package, and are automatically generated to match the latest `obs-websocket` release.
@@ -176,74 +160,7 @@ localStorage.debug = 'foo,bar:*,obs-websocket-js:*';
 
 For more information, see the [`debug`][link-debug] documentation.
 
-## Upgrading from 1.x to 2.x
-In order to better decouple the javascript library from the [obs-websocket][link-obswebsocket] plugin the decision has been made to no longer provide method definitions for request/event methods. You are responsible for aligning your method calls with the plugin version that you would like to support.
 
-```js
-// No longer supported.
-obs.getVersion();
-obs.onSwitchScenes();
-
-// Supported.
-obs.send('GetVersion');
-obs.on('SwitchScenes');
-```
-
-## Upgrading from 2.x to 3.x
-- The `es5` build is no longer provided. If you're in an environment which must run ES5-compatible code, continue using the latest 2.x release.
-- The Callback API has been separated from the Promise API. If you use callbacks in your `send` invocations, you will need to update them to use the new `sendCallback` method:
-
-  ```js
-  // No longer supported!
-  obs.send('StartStreaming', (error) => {
-    // Code here...
-  });
-
-  // Use this instead:
-  obs.sendCallback('StartStreaming', (error) => {
-    // Code here...
-  });
-  ```
-
-- The `connect` method no longer accepts a callback. Use the promise it returns instead.
-
-  ```js
-  // No longer supported!
-  obs.connect({address: 'localhost: 4444'}, (error) => {
-    // Code here...
-  });
-
-  // Use this instead:
-  obs.connect({address: 'localhost: 4444'}).then(() => {
-    console.log('connected');
-  }).catch((error) => {
-    console.error(error);
-  });
-  ```
-
-## Projects Using **obs-websocket-js**
-_To add your project to this list, submit a Pull Request._
-- [GamesDoneQuick/agdq17-layouts](https://github.com/GamesDoneQuick/agdq17-layouts)
-- [nodecg/nodecg-obs](https://github.com/nodecg/nodecg-obs)
-
-## [Contributing Guidelines][link-contributing]
-
-
-
-  [badge-build-status]: https://img.shields.io/travis/haganbmj/obs-websocket-js/master.svg?style=flat "Travis Status"
-  [badge-tag]: https://img.shields.io/github/tag/haganbmj/obs-websocket-js.svg?style=flat "Latest Tag"
-  [badge-release]: https://img.shields.io/github/release/haganbmj/obs-websocket-js.svg?style=flat "Latest Release"
-  [badge-coveralls]: https://coveralls.io/repos/github/haganbmj/obs-websocket-js/badge.svg?branch=master "Coveralls Status"
-  [badge-npm-downloads]: https://img.shields.io/npm/dt/obs-websocket-js.svg "NPM Downloads"
 
   [link-obswebsocket]: https://github.com/Palakis/obs-websocket "OBS WebSocket Plugin"
-  [link-Travis-CI]: https://travis-ci.org/haganbmj/obs-websocket-js "Travis CI"
-  [link-Coveralls]: https://coveralls.io/github/haganbmj/obs-websocket-js?branch=master "Coveralls"
-  [link-releases]:  https://github.com/haganbmj/obs-websocket-js/releases "obs-websocket-js Releases"
-  [link-tags]: https://github.com/haganbmj/obs-websocket-js/tags "obs-websocket-js Tags"
-  [link-download]: https://raw.githubusercontent.com/haganbmj/obs-websocket-js/gh-pages/dist/obs-websocket.js "Download"
-  [link-documentation]: https://github.com/haganbmj/obs-websocket-js/blob/gh-pages/DOCUMENTATION.md "Documentation"
-  [link-samples]: https://github.com/haganbmj/obs-websocket-js/tree/master/samples "Samples"
-  [link-changelog]: https://github.com/haganbmj/obs-websocket-js/blob/gh-pages/CHANGELOG.md "Changelog"
-  [link-contributing]: .github/CONTRIBUTING.md "Contributing"
   [link-debug]: https://github.com/visionmedia/debug "Debug Documentation"

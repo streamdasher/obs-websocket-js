@@ -1,17 +1,21 @@
 {
-  "name": "obs-websocket-js",
-  "version": "4.0.2",
+  "name": "@streamdasher/obs-websocket-js",
+  "version": "5.0.2",
   "description": "OBS Websocket API in Javascript, consumes @Palakis/obs-websocket",
-  "author": "Brendan Hagan (haganbmj)",
+  "author": "Ori Sky Farrell",
+  "contributors": [
+    "Brendan Hagan (haganbmj)"
+  ],
   "license": "MIT",
-  "repository": "haganbmj/obs-websocket-js",
-  "repoUrl": "https://github.com/haganbmj/obs-websocket-js",
+  "repository": "streamdasher/obs-websocket-js",
+  "repoUrl": "https://github.com/streamdasher/obs-websocket-js",
   "keywords": [
     "obs",
     "studio",
     "websocket",
     "node",
-    "node.js"
+    "node.js",
+    "streamdasher"
   ],
   "main": "lib/index.js",
   "files": [
@@ -69,9 +73,9 @@
     "webpack-cli": "^3.3.10"
   },
   "bugs": {
-    "url": "https://github.com/haganbmj/obs-websocket-js/issues"
+    "url": "https://github.com/streamdasher/obs-websocket-js/issues"
   },
-  "homepage": "https://github.com/haganbmj/obs-websocket-js#readme",
+  "homepage": "https://github.com/streamdasher/obs-websocket-js#readme",
   "eslintConfig": {
     "extends": "xo-space/esnext"
   },

@@ -57,12 +57,17 @@ interface OutputType {
 
 interface ArrayType {
   type: 'array';
-  items: PrimitiveType | ObjectType | OutputType | SceneType | SceneItemType | SceneItemTransformType;
+  items: PrimitiveType | ObjectType | OutputType | SceneType | ScenesCollectionType | SceneItemType | SceneItemTransformType;
   optional: boolean;
 }
 
 interface SceneType {
   type: 'ObsWebSocket.Scene';
+  optional: boolean;
+}
+
+interface ScenesCollectionType {
+  type: 'ObsWebSocket.ScenesCollection';
   optional: boolean;
 }
 
@@ -401,6 +406,15 @@ function resolveType(inType: string): AnyType {
         type: 'array',
         items: {
           type: 'ObsWebSocket.Scene',
+          optional: true
+        },
+        optional: isOptional
+      };
+    case 'array<scenescollection>':
+      return {
+        type: 'array',
+        items: {
+          type: 'ObsWebSocket.ScenesCollection',
           optional: true
         },
         optional: isOptional
